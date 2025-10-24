@@ -554,7 +554,7 @@ def wizards_lair(mountain, wizard, princess, king, town, character, dragon):
     if wizard == king:
         print(f"\nYou nod in response.\n\n\033[1;38;5;140mPrincess {princess}:\033[0m 'Thank you! You will have to pry the keys from {wizard}, he keeps them in his study where he brews those disgusting potions.'\n\nYou leave the dungeon. However as you are about to reach the door of the study, {wizard} await.\n\n\033[1;38;5;88m{wizard}:\033[0m 'So there's someone amongst that copycat's ranks who is capable after all.'")
     else:
-        print(f"\nYou nod in response.\n\n\033[1;38;5;140mPrincess {princess}:\033[0m Thank you! You will have to pry the keys from {wizard}, he keeps them in his study where he brews those disgusting potions.\n\nYou leave the dungeon. However as you are about to reach the door of the study, {wizard} await.\n\n\033[1;38;5;88m{wizard}:\033[0m 'So there's someone amongst {king}'s ranks who is capable after all.'")
+        print(f"\nYou nod in response.\n\n\033[1;38;5;140mPrincess {princess}:\033[0m Thank you! You will have to pry the keys from {wizard}, he keeps them in his study where he brews those disgusting potions.'\n\nYou leave the dungeon. However as you are about to reach the door of the study, {wizard} await.\n\n\033[1;38;5;88m{wizard}:\033[0m 'So there's someone amongst {king}'s ranks who is capable after all.'")
     read()
     print(f"\n\033[1;4;91m{character} vs. {wizard}\033[0m\n")
     while enemy > 0 and player > 0:
@@ -606,7 +606,7 @@ def wizards_lair(mountain, wizard, princess, king, town, character, dragon):
     if player <= 0:
         print(f"The final blow takes you out. {wizard} uses a levitation spell on you. As you lose conscious, {wizard} chuckles\n\n\033[1;38;5;88m{wizard}:\033[0m 'You shall make a fine specimen for my experiments.'")
         read()
-        return throne_room(king, town, princess, character)
+        return throne_room(king, town, princess, character, dragon)
     else:
         reward_item = reward()
         print(f"{wizard} was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
@@ -691,7 +691,7 @@ def horse(character, dragon):
 def townsperson_fight(character, thief, village, dragon):
     print(f"\n\033[1;4;33m{thief}'s Plan\033[0m")
     lord = villager_names()
-    print(f"\n\033[1;38;5;93m{thief}\033[0m 'It is good to hear there is another who fights for the people. The knights are supposed to help us but they're too busy taxing the poor.'\n\nHe points to a townsperson adorned in fine fabrics.\n\n\033[1;38;5;93m{thief}\033[0m 'I have set my eyes on this person. Their manner of dress differs from the regulars of this town. I imagine they wouldn't be at a loss if they were to spare us a few coin.\n\n{thief} approaches the townsperson. However, they are quickly overwhelmed.\n\n\033[1;38;5;222mTownsperson\033[0m 'Do you truly believe I came to this town unprepared for the likes of you? I, Lord {lord}, was trained by the finest of swordmasters, your knife is but a child's toy in my presence.\n\nLord {lord} lunges at you.")
+    print(f"\n\033[1;38;5;93m{thief}\033[0m 'It is good to hear there is another who fights for the people. The knights are supposed to help us but they're too busy taxing the poor.'\n\nHe points to a townsperson adorned in fine fabrics.\n\n\033[1;38;5;93m{thief}\033[0m 'I have set my eyes on this person. Their manner of dress differs from the regulars of this town. I imagine they wouldn't be at a loss if they were to spare us a few coin.'\n\n{thief} approaches the townsperson. However, they are quickly overwhelmed.\n\n\033[1;38;5;222mTownsperson\033[0m 'Do you truly believe I came to this town unprepared for the likes of you? I, Lord {lord}, was trained by the finest of swordmasters, your knife is but a child's toy in my presence.'\n\nLord {lord} lunges at you.")
     read()
 
     townsperson, player = 100, 100
@@ -744,7 +744,7 @@ def townsperson_fight(character, thief, village, dragon):
                 continue
 
     if player <= 0:
-        print(f"You were defeated by Lord {lord}.\n\n\033[1;38;5;222mLord {lord}\033[0m 'What a pitiful display, begone with you!\n\nLord {lord} raises his sword. The glean of its edge is the last image you see.")
+        print(f"You were defeated by Lord {lord}.\n\n\033[1;38;5;222mLord {lord}\033[0m 'What a pitiful display, begone with you!'\n\nLord {lord} raises his sword. The glean of its edge is the last image you see.")
         read()
         return bandit_chat(character, village, dragon)
     else:
@@ -844,7 +844,7 @@ def bandit_chat(character, village, dragon):
 def knight_fight(character, lord, village, dragon):
     print(f"\n\033[1;4;33mEscape attempt\033[0m")
 
-    print(f"\nYou leave Lord {lord} to fend for himself. However you don't travel far as a Knight blocks your path.\n\n\033[1;38;5;27mKnight\033[0m 'Not a loyal one aren't you, leaving your accomplice on their own.\n\nYou look back and see Lord {lord} has made quick work of the bandit. They flee from the scene.\n\n\033[1;38;5;27mKnight\033[0m 'I shall take you in for questioning!'")
+    print(f"\nYou leave Lord {lord} to fend for himself. However you don't travel far as a Knight blocks your path.\n\n\033[1;38;5;27mKnight\033[0m 'Not a loyal one aren't you, leaving your accomplice on their own.'\n\nYou look back and see Lord {lord} has made quick work of the bandit. They flee from the scene.\n\n\033[1;38;5;27mKnight\033[0m 'I shall take you in for questioning!'")
     read()
 
     knight, player = 100, 100
@@ -899,7 +899,7 @@ def knight_fight(character, lord, village, dragon):
     if player <= 0:
         print(f"You were defeated by the Knight. More knights come over and throw your weakened body in the back of a carriage. The light closes on you when the doors shut.")
         read()
-        return town(character, village)
+        return town(character, village, dragon)
     else:
         reward_item = reward()
         print(f"The knight was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
@@ -912,7 +912,7 @@ def knight_fight(character, lord, village, dragon):
 def lord_chat(character, village, dragon):
     print(f"\n\033[1;4;33mTalk with a Lord\033[0m")
     thief, lord = villager_names(), villager_names()
-    print(f"\nYou move over to the man in the fine hat. He examines you. Seeing you do not pose a threat, he extends his hand.\n\n\033[1;38;5;222mLord {lord}\033[0m 'Good greetings, I am Lord {lord}. I see you are not of this town either. What is your name may I ask? ... I see. {character}, sorry to mistrust you but this place is known for being a home of thieves. One cannot be too cautious within this land.'\n\nHe subtly gestures to shifty individuals near a ginnel. \n\n\033[1;38;5;222mLord {lord}\033[0m 'What brings you to this land, young one?\n\nBefore you can answer, a man with a mask approaches you with a knife.\n\n\033[1;38;5;160mBandit:\033[0m 'Give us your gold now!'\n\nLord {lord} has his hand on his hilt.\n")
+    print(f"\nYou move over to the man in the fine hat. He examines you. Seeing you do not pose a threat, he extends his hand.\n\n\033[1;38;5;222mLord {lord}\033[0m 'Good greetings, I am Lord {lord}. I see you are not of this town either. What is your name may I ask? ... I see. {character}, sorry to mistrust you but this place is known for being a home of thieves. One cannot be too cautious within this land.'\n\nHe subtly gestures to shifty individuals near a ginnel. \n\n\033[1;38;5;222mLord {lord}\033[0m 'What brings you to this land, young one?'\n\nBefore you can answer, a man with a mask approaches you with a knife.\n\n\033[1;38;5;160mBandit:\033[0m 'Give us your gold now!'\n\nLord {lord} has his hand on his hilt.\n")
 
     while True:
         allegiance = input("Do you choose to do? (Help/Flee) ").casefold().strip()
