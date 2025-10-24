@@ -2,6 +2,7 @@
 import random
 import urllib.request
 import re
+from collections import Counter
 
 source = "https://rawcdn.githack.com/uberspot/OpenTriviaQA/master/categories/general"
 karma = 0
@@ -220,8 +221,13 @@ def reward():
 
     return reward
 
-def check_bag(items):
-    return items
+def check_bag(bag):
+    for k, v in Counter(bag).items():
+        if v > 1:
+            print(f"{k}: {v}")
+        else:
+            print(f"{k}")
+    return ""
 
 def items(bag, reward):
     bag.append(reward)
@@ -323,7 +329,7 @@ def king_fight(king, princess, character):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -345,7 +351,7 @@ def king_fight(king, princess, character):
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 boss -= hit
@@ -392,7 +398,7 @@ def dragon_fight(king, character, dragon, princess):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -414,7 +420,7 @@ def dragon_fight(king, character, dragon, princess):
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 boss -= hit
@@ -479,7 +485,7 @@ def deny_quest(king, wizard, princess, town, character, dragon):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -563,7 +569,7 @@ def wizards_lair(mountain, wizard, princess, king, town, character, dragon):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -583,7 +589,7 @@ def wizards_lair(mountain, wizard, princess, king, town, character, dragon):
             hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 enemy -= hit
@@ -704,7 +710,7 @@ def townsperson_fight(character, thief, village, dragon):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -725,7 +731,7 @@ def townsperson_fight(character, thief, village, dragon):
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 townsperson -= hit
@@ -770,7 +776,7 @@ def bandit_fight(character, thief, village, dragon):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -791,7 +797,7 @@ def bandit_fight(character, thief, village, dragon):
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 bandit -= hit
@@ -812,7 +818,7 @@ def bandit_fight(character, thief, village, dragon):
         print(f"{thief} the Bandit was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
         inventory = items(bag, reward_item)
         print(f"Updated inventory: {inventory}.")
-        print(f"\n{thief} loses his grip on his knife. You kick it away, stopping him from reaching it. A group of knights come over and arrests {thief}. \n\n\033[1;38;5;172m{thief}\033[0m 'Curse you, curse you all! May the Gods enact righteous justice!\n\nHe disppears with the knights and the town continues its way of life.")
+        print(f"\n{thief} loses his grip on his knife. You kick it away, stopping him from reaching it. A group of knights come over and arrests {thief}. \n\n\033[1;38;5;172m{thief}\033[0m 'Curse you, curse you all! May the Gods enact righteous justice!'\n\nHe disppears with the knights and the town continues its way of life.")
         read()
         return horse(character, dragon)
     
@@ -832,7 +838,7 @@ def bandit_chat(character, village, dragon):
             print(f"\n\033[1;38;5;172m{thief}\033[0m 'Thank you.'")
             return townsperson_fight(character, thief, village, dragon)
         else:
-            print(f"\n\033[1;38;5;172m{thief}:\033[0m 'Sorry, I could not hear your answer.\n")
+            print(f"\n\033[1;38;5;172m{thief}:\033[0m 'Sorry, I could not hear your answer.'\n")
             continue
 
 def knight_fight(character, lord, village, dragon):
@@ -857,7 +863,7 @@ def knight_fight(character, lord, village, dragon):
         if option == "use item":
             itinerary = check_bag(bag)
             print(itinerary)
-            item = input("\nPlease select your item: ").casefold().strip()
+            item = input("Please select your item: ").casefold().strip()
             match item:
                 case "potion":
                     player = potion(player)
@@ -878,7 +884,7 @@ def knight_fight(character, lord, village, dragon):
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().upper()
+            answer = input(f"Please select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 knight -= hit
