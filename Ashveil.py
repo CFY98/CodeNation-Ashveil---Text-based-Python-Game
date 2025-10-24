@@ -442,12 +442,16 @@ def dragon_fight(king, character, dragon, princess):
         return good_ending()
 
 def cycles_end_good(king, princess, dragon, character):
+    level_three()
+    
     print(f"\n\033[1;4;33mFoot of volcano\033[0m")
     print(f"You follow the instructions of the dragon through the harshest of lands to get here. This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below. The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones. The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.")
     read()
     return dragon_fight(king, character, dragon, princess)
 
 def cycles_end_bad(king, princess, character):
+    level_three()
+
     print(f"\n\033[1;4;33mFoot of volcano\033[0m")
     print(f"You chase King {king} through the harshest of lands to get here. This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below. The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones. The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.")
     read()
@@ -628,7 +632,7 @@ def throne_room(king, town, princess, character, dragon):
     print("\n\033[1;4;33mThrone Room\033[0m")
     print(f"The marbeled flooring and detailed tapestry illuminate the room. King {king} sits on the throne, servants and guards to keep him company. The throne besides him is vacant. He is an grandiose figure with eyes wise beyond his years. You kneel, introduce yourself and pay your respects.")
     read()
-    # traveller is a placeholder for the user's name.
+    
     if king == wizard:
         print(f"\n\033[1;38;5;93mKing {king}:\033[0m 'Hello {character}, welcome to {town}.\n\nWhile we are usually a peaceful kingdom, a great travesty has befallen us. As you may be aware, my daughter, Princess {princess} has been kidnapped by the licentious {wizard}. It is accursed we are to share the same name. He is a fiendish wizard who has plagued the lands, and my most trustworthy of knights have yet to rescue our beloved princess. Are you here for the request I had delivered across the realm? It is unbecoming to bequest the aid of strangers, but times are dire and we are in an increasing sense of desperation.\n\n{character}, please may you accept this quest? The reward shall be generous.'")
     else:
