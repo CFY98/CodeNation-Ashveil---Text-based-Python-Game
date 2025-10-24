@@ -2,8 +2,9 @@ A text-based RPG set in the fictional world of Ashveil. The player must pass thr
 
 Developed as part of the CodeNation LV2 Coding Course in a team of 2 (formerly 3) people.
 
-Head Developer - CFY
 Project Manager - CN
+
+Head Developer - CFY
 
 ##DOWNLOADS##
 
