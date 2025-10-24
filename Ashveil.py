@@ -227,16 +227,8 @@ def items(bag, reward):
     bag.append(reward)
     return bag
 
-def level_three_damage():
+def damage():
     damage = random.randint(1, 100)
-    return damage
-
-def level_two_damage():
-    damage = random.randint(1, 65)
-    return damage
-
-def level_one_damage():
-    damage = random.randint(1, 30)
     return damage
 
 def correct_answer(block):
@@ -283,6 +275,8 @@ def dragon_names():
 
     return random.choice(dragon_names)
 
+dragon = dragon_names()
+
 def female_names(): 
     female_names = ["Yvonnyna,", "Wulfhgytha", "Victricia", "Ursulilla", "Theophanissa", "Susannotte", "Rosiana", "Prudentota", "Osthrith", "Nicholaa", "Melisendyna", "Linet", "Katherinelle", "Julela", "Isotte", "Hrothswith", "Godlgytha", "Florilla", "Etheldreda", "Dominyna", "Cyneflaed", "Bryhtthrith", "Aveletta"]
 
@@ -311,7 +305,7 @@ def read():
 ############################################ LEVEL THREE AND GAME END ############################################
 def king_fight(king, princess, character):
     print(f"\n\033[1;4;33mCycle's End\033[0m")
-    print(f"After hours of travelling you reach the foot of the volcano this will be the final battleground where you will fight King {king}. As you approach the volcano, the king awaits in full armour ready for the final battle. As the volcano roars you stand menacingly as you stare down the king slowly tigtening the grip on your sword.\n")
+    print(f"After hours of travelling you reach the foot of the volcano this will be the final battleground where you will fight King {king}. As you approach the volcano, the king awaits in full armour ready for the final battle. As the volcano roars you stand menacingly as you stare down the king slowly tigtening the grip on your sword.")
     read()
 
     boss, player = 100, 100
@@ -347,11 +341,11 @@ def king_fight(king, princess, character):
                     continue
 
         elif option == "fight":
-            hit = level_three_damage()
+            hit = damage()
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 boss -= hit
@@ -380,7 +374,7 @@ def king_fight(king, princess, character):
 def dragon_fight(king, character, dragon, princess):
     print(f"\n\033[1;4;33mCycle's End\033[0m")
     print(f"After hours of travelling you reach the foot of the volcano and have one thing in your mind to slay {dragon}, a quest entrusted to you given by King {king}.\n")
-    print("As I approach the volcano, a colossal dragon swoops down with tremendous force. As the volcano roars you stand trembling as you stare down the dragon slowly tigtening the grip on your sword.\n")
+    print("As I approach the volcano, a colossal dragon swoops down with tremendous force. As the volcano roars you stand trembling as you stare down the dragon slowly tigtening the grip on your sword.")
     read()
 
     boss, player = 100, 100
@@ -416,11 +410,11 @@ def dragon_fight(king, character, dragon, princess):
                     continue
 
         elif option == "fight":
-            hit = level_three_damage()
+            hit = damage()
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 boss -= hit
@@ -449,21 +443,20 @@ def dragon_fight(king, character, dragon, princess):
 
 def cycles_end_good(king, princess, dragon, character):
     print(f"\n\033[1;4;33mFoot of volcano\033[0m")
-    print(f"You follow the instructions of the dragon through the harshest of lands to get here. {princess}'s screams penetrate the land")
-    print("This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below.The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones.\n")
-    print("The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.\n")
+    print(f"You follow the instructions of the dragon through the harshest of lands to get here. This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below. The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones. The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.")
+    read()
     return dragon_fight(king, character, dragon, princess)
 
 def cycles_end_bad(king, princess, character):
     print(f"\n\033[1;4;33mFoot of volcano\033[0m")
-    print(f"You chase King {king} through the harshest of lands to get here.")
-    print("This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below.The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones. The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.")
+    print(f"You chase King {king} through the harshest of lands to get here. This is no mere mountain, it is the scar of a forgotten war, where the earth cracked open and never healed. Its peak is jagged and blackened, crowned with fire that dances like cursed flame. Thunder rolls from its depths, not from storm, but from something ancient stirring below. The ground trembles in its presence. Rivers run dry. Birds flee. Even the bravest warriors speak its name only in hushed tones. The sky split with a roar like a thousand war drums. The volcano has awakened. From its jagged crown burst a pillar of fire and ash, blotting out the sun and casting the land into crimson twilight. Rivers of molten rock surged down its flanks, devouring forest and fortress alike. The ground trembled as if the gods themselves recoiled, and the air turned thick with smoke and fury.Lightning danced through the ash clouds, illuminating the silhouette of the mountain—no longer dormant, but alive with wrath. Villages miles away felt the heat. The wind carried screams and embers. And in the heart of the inferno, some swear they saw a shape rise—wreathed in flame, born of stone and vengeance.")
+    read()
     return king_fight(king, princess, character)
 
 ############################################ LEVEL THREE START ############################################
 
 ############################################ LEVEL TWO END ############################################
-def deny_quest(king, wizard, princess, town, dragon, character):
+def deny_quest(king, wizard, princess, town, character, dragon): 
     guard, player = 100, 100
     guard_poisoned = None
 
@@ -500,11 +493,11 @@ def deny_quest(king, wizard, princess, town, dragon, character):
                     continue
                 
         elif option == "fight":
-            hit = level_two_damage()    
+            hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 guard -= hit
@@ -519,7 +512,7 @@ def deny_quest(king, wizard, princess, town, dragon, character):
     if player <= 0:
         print(f"You were defeated by the Royal Guard. Satisfied, King {king} thanks the Royal Guard and looms over your weakned body.\n\n\033[1;38;5;93mKing {king}:\033[0m 'Take them to the dungeon where Inquisitor and the Physician can prepare him for questioning.'")
         read()
-        return throne_room(king, town, princess, character)
+        return throne_room(king, town, princess, character, dragon)
     else:
         reward_item = reward()
         print(f"The Royal Guard was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
@@ -535,15 +528,13 @@ def courtyard(princess, wizard, king, dragon, character):
     read()
     return karma_check(king, princess, dragon, character)
     
-def wizards_lair_entrance(princess, wizard, king, character):
-    dragon = dragon_names()
-
+def wizards_lair_entrance(princess, wizard, king, character, dragon):
     print(f"\n\033[1;4;33m{wizard}'s Lair Entrance\n\033[0m")
     print(f"You guide Princess {princess} through the icy terrain. The downhill poses a different challenge to the last. She grips you tightly as you make it down the mountain together.\n\nSuddenly, a horrifying screech traverses through the clouds. An ominous shadow becomes larger until it fully emerges from the clouds. A black dragon charges at you, knocking you to the ground. When you recover, Princess {princess} is no where to be found. Her screams catch your attention.\n\n\033[1;38;5;214m{dragon}:\033[0m 'It seems {wizard} has not held his end of the deal. No matter. If you dare to face me, I shall be at Cycle's End.'\n\n{dragon} flies away with Princess {princess} in tow.")
     read()
     return courtyard(princess, wizard, king, dragon, character)
 
-def wizards_lair(mountain, wizard, princess, king, town, character):
+def wizards_lair(mountain, wizard, princess, king, town, character, dragon):
     enemy, player = 100, 100
     enemy_poisoned = None
 
@@ -585,10 +576,10 @@ def wizards_lair(mountain, wizard, princess, king, town, character):
                     print("You changed your mind.\n")
                     continue
         elif option == "fight":
-            hit = level_two_damage()    
+            hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 enemy -= hit
@@ -613,15 +604,15 @@ def wizards_lair(mountain, wizard, princess, king, town, character):
         print(f"Updated inventory: {inventory}.")
         print(f"\n{wizard} has fallen. Their body dissolves into a sludge. Side-stepping the remains, you grab the keys from {wizard}'s desk and free Princess {princess} from her prison.'")
         read()
-        return wizards_lair_entrance(princess, wizard, king, character)
+        return wizards_lair_entrance(princess, wizard, king, character, dragon)
     
-def mountain_path(wizard, mountain, princess, king, town, character):
+def mountain_path(wizard, mountain, princess, king, town, character, dragon):
     print(f"\n\033[1;4;33m{mountain}\033[0m")
     print(f"The air is biting and the winds blow harshly. The steep terrain has deterred but the bravest of warriors. As you climb, the ground beneath your feet seems to crumble ever so slightly. Despite this, you press on forward.\n\nFaintly, you hear the exhausted screams of a woman. You rush over to the direction of the voice.")
     read()
-    return wizards_lair(mountain, wizard, princess, king, town, character)
+    return wizards_lair(mountain, wizard, princess, king, town, character, dragon)
 
-def accept_quest(king, wizard, princess, town, character):
+def accept_quest(king, wizard, princess, town, character, dragon):
     peaks = ["Annapurna I", "Everest", "K2", "Mansalu", "Ben Nevis", "Kangchenjunga", "Cho Oyu", "Dhaulagiri I", "Nanga Parbat", "Lhotse", "Makalu"]
     mountain = random.choice(peaks)
     if mountain == 'Ben Nevis':
@@ -629,9 +620,9 @@ def accept_quest(king, wizard, princess, town, character):
     else:
         print(f"\nYou graciously accept the quest. King {king} is pleased.\n\n\033[1;38;5;93mKing {king}:\033[0m 'That is wonderful. The last sighting of {wizard} was at Mt. {mountain}. One of the legendary 10 peaks, it have proven to be an unruly mountain to ascend. May the Gods bless you on this quest. You are welcome to rest in the guest chambers in preparation for the journey ahead.'")
     read()
-    return mountain_path(wizard, mountain, princess, king, town, character)
+    return mountain_path(wizard, mountain, princess, king, town, character, dragon)
 
-def throne_room(king, town, princess, character):
+def throne_room(king, town, princess, character, dragon):
     wizard = male_names()
 
     print("\n\033[1;4;33mThrone Room\033[0m")
@@ -639,26 +630,25 @@ def throne_room(king, town, princess, character):
     read()
     # traveller is a placeholder for the user's name.
     if king == wizard:
-        print(f"\n\033[1;38;5;93mKing {king}:\033[0m 'Hello {character}, welcome to {town}.\n\nWhile we are usually a peaceful kingdom, a great travesty has befallen us. As you may be aware, my daughter, Princess {princess} has been kidnapped by the licentious {wizard}. It is accursed we are to share the same name. He is a fiendish wizard who has plagued the lands, and my most trustworthy of knights have yet to rescue our beloved princess. Are you here for the request I had delivered across the realm? It is unbecoming to bequest the aid of strangers, but times are dire and we are in an increasing sense of desperation.\n\nKind traveller, please may you accept this quest? The reward shall be generous.'")
+        print(f"\n\033[1;38;5;93mKing {king}:\033[0m 'Hello {character}, welcome to {town}.\n\nWhile we are usually a peaceful kingdom, a great travesty has befallen us. As you may be aware, my daughter, Princess {princess} has been kidnapped by the licentious {wizard}. It is accursed we are to share the same name. He is a fiendish wizard who has plagued the lands, and my most trustworthy of knights have yet to rescue our beloved princess. Are you here for the request I had delivered across the realm? It is unbecoming to bequest the aid of strangers, but times are dire and we are in an increasing sense of desperation.\n\n{character}, please may you accept this quest? The reward shall be generous.'")
     else:
-        print(f"\n\033[1;38;5;93mKing {king}:\033[0m 'Hello {character}, welcome to {town}.\n\nWhile we are usually a peaceful kingdom, a great travesty has befallen us. As you may be aware, my daughter, Princess {princess} has been kidnapped by the licentious {wizard}. He is a fiendish wizard who has plagued the lands, and my most trustworthy of knights have yet to rescue our beloved princess. Are you here for the request I had delivered across the realm? It is unbecoming to bequest the aid of strangers, but times are dire and we are in an increasing sense of desperation.\n\nKind traveller, please may you accept this quest? The reward shall be generous.'")
+        print(f"\n\033[1;38;5;93mKing {king}:\033[0m 'Hello {character}, welcome to {town}.\n\nWhile we are usually a peaceful kingdom, a great travesty has befallen us. As you may be aware, my daughter, Princess {princess} has been kidnapped by the licentious {wizard}. He is a fiendish wizard who has plagued the lands, and my most trustworthy of knights have yet to rescue our beloved princess. Are you here for the request I had delivered across the realm? It is unbecoming to bequest the aid of strangers, but times are dire and we are in an increasing sense of desperation.\n\n{character}, please may you accept this quest? The reward shall be generous.'")
 
     choice = input(f"\n\033[3;38;5;106mDo you want to accept the quest by King {king}?\033[0m \033[96m(Yes/No):\033[0m ").casefold()
     while True:
         try:
             if choice == "yes":
                 update_karma(+ 1)
-                return accept_quest(king, wizard, princess, town, character)
+                return accept_quest(king, wizard, princess, town, character, dragon)
             elif choice == "no":
-                update_karma(- 1)
-                return deny_quest(king, wizard, princess, town, character)
+                update_karma(- 3)
+                return deny_quest(king, wizard, princess, town, character, dragon)
             else:
-                raise ValueError(f"King {king} failed to comprehend your response.")
+                raise ValueError(f"King {king} failed to comprehend your response.\n")
         except ValueError as e:
             print(e)
-            continue
 
-def castle(character):
+def castle(character, dragon):
     king = male_names()
     princess = female_names()
     town = town_names()
@@ -666,9 +656,9 @@ def castle(character):
     print("\n\033[1;4;33mCastle\033[0m")
     print(f"You have reached {town}. It is enclosed by walls of stone and mortar. The guards inform you this is the abode of King {king}. They eye you warily, inspecting your itinerary. They see you pose no harm and allow you to enter.\n\nIt is a modestly wealthy kingdom, with lucious greens in the markets and fine fabrics in the garnment shops. The children laugh as they play together in peace. In the centre of the town, a group of villagers pray to the statue of a God.\n\n'Please return Princess {princess} to safety.'\n\nThe phrase echoes amongst their prayers. You walk forward and reach the castle at the end of the enclosure. The home of King {king}.")
     read()
-    return throne_room(king, town, princess, character)
+    return throne_room(king, town, princess, character, dragon)
 
-def horse(character):
+def horse(character, dragon):
     level_two()
 
     print("\n\033[1;4;33mStation\033[0m")
@@ -679,7 +669,7 @@ def horse(character):
             if transport == "Horse":
                 print("\nYou approach the horse steadily. At first, it observes you with caution but after smelling your scent, it appears to be welcoming. You mount the horse and ride through the barren fields.")
                 read()
-                return castle(character)
+                return castle(character, dragon)
             else:
                 raise ValueError("\nThe next destination is too far to venture forth by foot.\n")
         except ValueError as e:
@@ -688,7 +678,7 @@ def horse(character):
 ############################################ LEVEL TWO START ############################################
 
 ############################################ LEVEL ONE END ############################################
-def townsperson_fight(character, thief, village):
+def townsperson_fight(character, thief, village, dragon):
     print(f"\n\033[1;4;33m{thief}'s Plan\033[0m")
     lord = villager_names()
     print(f"\n\033[1;38;5;93m{thief}\033[0m 'It is good to hear there is another who fights for the people. The knights are supposed to help us but they're too busy taxing the poor.'\n\nHe points to a townsperson adorned in fine fabrics.\n\n\033[1;38;5;93m{thief}\033[0m 'I have set my eyes on this person. Their manner of dress differs from the regulars of this town. I imagine they wouldn't be at a loss if they were to spare us a few coin.\n\n{thief} approaches the townsperson. However, they are quickly overwhelmed.\n\n\033[1;38;5;222mTownsperson\033[0m 'Do you truly believe I came to this town unprepared for the likes of you? I, Lord {lord}, was trained by the finest of swordmasters, your knife is but a child's toy in my presence.\n\nLord {lord} lunges at you.")
@@ -727,11 +717,11 @@ def townsperson_fight(character, thief, village):
                     print("You changed your mind.\n")
                     continue
         elif option == "fight":
-            hit = level_one_damage()    
+            hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 townsperson -= hit
@@ -746,7 +736,7 @@ def townsperson_fight(character, thief, village):
     if player <= 0:
         print(f"You were defeated by Lord {lord}.\n\n\033[1;38;5;222mLord {lord}\033[0m 'What a pitiful display, begone with you!\n\nLord {lord} raises his sword. The glean of its edge is the last image you see.")
         read()
-        return bandit_chat(character, village)
+        return bandit_chat(character, village, dragon)
     else:
         reward_item = reward()
         print(f"Lord {lord} was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
@@ -754,9 +744,9 @@ def townsperson_fight(character, thief, village):
         print(f"Updated inventory: {inventory}.")
         print(f"Lord {lord}'s sword shatters on the last blow.\n\n\033[1;38;5;222mLord {lord}\033[0m 'What an honour to have duelled with such a fine opponent. Please accept this dowry as a token of my respect for your swordsmenship.'\n\nHe gives you a generous sum which you give to {thief}.\n\n\033[1;38;5;172m{thief}:\033[0m 'Thank you for your help. I am in a haste to spe-- to donate to the less fortunate. May the Gods bless you on your travels.'\n\nHe scurries into the darkened alleways of the town without a trace in sight.")
         read()
-        return horse(character)
+        return horse(character, dragon)
 
-def bandit_fight(character, thief, village):
+def bandit_fight(character, thief, village, dragon):
     print(f"\n\033[1;4;33mSuddenly...\033[0m")
     bandit, player = 100, 100
     bandit_poisoned = None
@@ -793,11 +783,11 @@ def bandit_fight(character, thief, village):
                     print("You changed your mind.\n")
                     continue
         elif option == "fight":
-            hit = level_one_damage()    
+            hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 bandit -= hit
@@ -812,17 +802,17 @@ def bandit_fight(character, thief, village):
     if player <= 0:
         print(f"You were defeated by {thief} the Bandit. Some knights come over and see you on the floor.\n\n\033[1;38;5;172m{thief}:\033[0m 'That person is a thief! Please take him away.'\n\nYou're too weak to speak for yourself. Anyone who could have vouched for you is no longer around. Due to the lack of pushback, the knights seize you and throw you in the back of a carriage. The light closes on you when the doors shut.")
         read()
-        return town(character, village)
+        return town(character, village, dragon)
     else:
         reward_item = reward()
         print(f"{thief} the Bandit was defeated!\nFor fighting valiantly, you found a {reward_item}.\n")
         inventory = items(bag, reward_item)
         print(f"Updated inventory: {inventory}.")
-        print(f"\n {thief} loses his grip on his knife. You kick it away, stopping him from reaching it. A group of knights come over and arrests {thief}. \n\n\033[1;38;5;172m{thief}\033[0m 'Curse you, curse you all! May the Gods enact righteous justice!\n\nHe disppears with the knights and the town continues its way of life.")
+        print(f"\n{thief} loses his grip on his knife. You kick it away, stopping him from reaching it. A group of knights come over and arrests {thief}. \n\n\033[1;38;5;172m{thief}\033[0m 'Curse you, curse you all! May the Gods enact righteous justice!\n\nHe disppears with the knights and the town continues its way of life.")
         read()
-        return horse(character)
+        return horse(character, dragon)
     
-def bandit_chat(character, village):
+def bandit_chat(character, village, dragon):
     print(f"\n\033[1;4;33mTalk with a Bandit\033[0m")
     thief = villager_names()
     print(f"\nYou move over to the man in the black mask. He notices your presence.\n\n\033[1;38;5;160mBandit:\033[0m 'My name is {thief}. And you are? ...I see. {character}, you look like a strong person. I've been eyeing that guy over there who seems to be in good fortune. The people of this town are living in squalor and it would be nice to share a bit of that wealth with others. Please may you help me?'\n")
@@ -832,16 +822,16 @@ def bandit_chat(character, village):
         if response == "no":
             update_karma(+ 1)
             print(f"\n\033[1;38;5;172m{thief}\033[0m 'I guess I will have to find someone else that is willing to help.'")
-            return bandit_fight(character, thief, village)
+            return bandit_fight(character, thief, village, dragon)
         elif response == "yes":
             update_karma(- 1)
             print(f"\n\033[1;38;5;172m{thief}\033[0m 'Thank you.'")
-            return townsperson_fight(character, thief, village)
+            return townsperson_fight(character, thief, village, dragon)
         else:
             print(f"\n\033[1;38;5;172m{thief}:\033[0m 'Sorry, I could not hear your answer.\n")
             continue
 
-def knight_fight(character, lord, village):
+def knight_fight(character, lord, village, dragon):
     print(f"\n\033[1;4;33mEscape attempt\033[0m")
 
     print(f"\nYou leave Lord {lord} to fend for himself. However you don't travel far as a Knight blocks your path.\n\n\033[1;38;5;27mKnight\033[0m 'Not a loyal one aren't you, leaving your accomplice on their own.\n\nYou look back and see Lord {lord} has made quick work of the bandit. They flee from the scene.\n\n\033[1;38;5;27mKnight\033[0m 'I shall take you in for questioning!'")
@@ -880,11 +870,11 @@ def knight_fight(character, lord, village):
                     print("You changed your mind.\n")
                     continue
         elif option == "fight":
-            hit = level_one_damage()    
+            hit = damage()    
             query, original_block = randomise()
             correct = correct_answer(original_block)
 
-            answer = input(f"\nPlease select your answer: ").strip().casefold()
+            answer = input(f"\nPlease select your answer: ").strip().upper()
             if answer == correct:
                 print("\nThat is the correct answer!\n")
                 knight -= hit
@@ -907,26 +897,26 @@ def knight_fight(character, lord, village):
         print(f"Updated inventory: {inventory}.")
         print("The Knight stumbles to the ground. He lies unconscious. You observe the audience around you. The townspeople look at you in fear. Sensing you are no longer welcome, you leave immediately.")
         read()
-        return horse(character)
+        return horse(character, dragon)
 
-def lord_chat(character, village):
+def lord_chat(character, village, dragon):
     print(f"\n\033[1;4;33mTalk with a Lord\033[0m")
     thief, lord = villager_names(), villager_names()
-    print(f"\nYou move over to the man in the fine hat. He examines you. Seeing you do not pose a threat, he extends his hand.\n\n\033[1;38;5;222mLord {lord}\033[0m 'Good greetings, I am Lord {lord}. I see you are not of this town either. What is your name may I ask? ... I see. {character}, sorry to mistrust you but this place is known for being a home of thieves. One cannot be too cautious within this land.'\n\nHe subtly gestures to shifty individuals near a ginnel. \n\n\033[1;38;5;222mLord {lord}\033[0m 'What brings you to this land, young one?\n\nBefore you can answer, a man with a mask approaches you with a knife.\n\n\033[1;38;5;160mBandit:\033[0m 'Give us your gold now!\n\nLord {lord} has his hand on his hilt.\n")
+    print(f"\nYou move over to the man in the fine hat. He examines you. Seeing you do not pose a threat, he extends his hand.\n\n\033[1;38;5;222mLord {lord}\033[0m 'Good greetings, I am Lord {lord}. I see you are not of this town either. What is your name may I ask? ... I see. {character}, sorry to mistrust you but this place is known for being a home of thieves. One cannot be too cautious within this land.'\n\nHe subtly gestures to shifty individuals near a ginnel. \n\n\033[1;38;5;222mLord {lord}\033[0m 'What brings you to this land, young one?\n\nBefore you can answer, a man with a mask approaches you with a knife.\n\n\033[1;38;5;160mBandit:\033[0m 'Give us your gold now!'\n\nLord {lord} has his hand on his hilt.\n")
 
     while True:
-        allegiance = input("Do you choose to help or flee? ")
+        allegiance = input("Do you choose to do? (Help/Flee) ").casefold().strip()
         if allegiance == 'help':
             update_karma(+ 1)
-            return bandit_fight(character, thief, village)
+            return bandit_fight(character, thief, village, dragon)
         elif allegiance == "flee":
             update_karma(- 1)
-            return knight_fight(character, lord, village)
+            return knight_fight(character, lord, village, dragon)
         else:
-            print("\nThe nerves keep you still.")
+            print("\nThe nerves keep you still.\n")
             continue
 
-def town(character, village):
+def town(character, village, dragon):
     level_one()
 
     print(f"\n\033[1;4;33m{village}\033[0m")
@@ -935,16 +925,16 @@ def town(character, village):
     while True:
         person = input("Do you speak with the man in the hat or the man in the mask? (Mask/Hat) ").casefold().strip()
         if person == "hat":
-            return lord_chat(character, village)
+            return lord_chat(character, village, dragon)
         elif person == "mask":
-            return bandit_chat(character, village)
+            return bandit_chat(character, village, dragon)
         else:
             print("\nYou do some stretches.")
             continue
 ############################################ LEVEL ONE START ############################################ 
 
 ############################################ CHARACTER CREATION END ############################################   
-def main():
+def main(dragon):
     village = village_names()
 
     show_intro()
@@ -953,10 +943,13 @@ def main():
         character = input("Please insert your name: ").strip().capitalize()
         confirm = input(f"\nIs {character} correct? (Yes/No) ").strip().casefold()
         if confirm == "yes":
-            print(f"\n\033[1;38;5;101mInnkeeper:\033[0m '{character}, aye. Fine name that is. Enjoy the rest of your visit at {village}!'")
-            return town(character, village)
+            print(f"\n\033[1;38;5;116mInnkeeper:\033[0m '{character}, aye. Fine name that is. Enjoy the rest of your visit at {village}!'")
+            return town(character, village, dragon)
+        else:
+            print("\nYou yawn through your answer.\n\n\033[1;38;5;116mInnkeeper:\033[0m 'Sorry, I couldn't catch that.'\n")
+            continue
 
 ############################################ CHARACTER CREATION START ############################################       
 if __name__ == "__main__":
-    main()
+    main(dragon)
 ############################################ MAIN GAME START ############################################
