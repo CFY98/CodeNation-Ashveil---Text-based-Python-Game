@@ -433,7 +433,7 @@ def dragon_fight(king, character, dragon, princess):
                 continue
 
     if player <= 0:
-        print(f"You were defeated by the {dragon}. The grab you and throw you up in the air. You land inside its mouth and are swallowed whole.")
+        print(f"You were defeated by the {dragon}. They grab you and throw you up in the air. You land inside its mouth and are swallowed whole.")
         read()
         return cycles_end_good(king, princess, dragon, character)
     else:
